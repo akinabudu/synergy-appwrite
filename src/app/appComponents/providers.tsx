@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { UserDetailsContext } from "./lib/Context";
+import AOS from "aos";
 
 type UserDetails = {
   studentExamId?: string;
@@ -13,6 +14,12 @@ type UserDetails = {
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   const [userDetails, setUserDetails] = useState<UserDetails[]>([]);
+
+  useEffect(()=>{
+    AOS.init({
+      duration: 600,
+    });
+  },[])
     
 
   return (

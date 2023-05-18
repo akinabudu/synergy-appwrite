@@ -1,8 +1,13 @@
+'use client'
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useSelectedLayoutSegment } from "next/navigation";
+
+
 
 export const Sidebar = () => {
+  const segment = useSelectedLayoutSegment();
   return (
     <aside
       id="logo-sidebar"
@@ -26,7 +31,7 @@ export const Sidebar = () => {
           <li>
             <Link
               href="/dashboard"
-              className="flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700"
+              className={`flex items-center p-2 px-2 rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='dashboard'?"bg-primary-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -45,7 +50,7 @@ export const Sidebar = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className="flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700"
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='savings'?"bg-primary-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -66,7 +71,7 @@ export const Sidebar = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className="flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700"
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='loans'?"bg-primary-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -87,7 +92,7 @@ export const Sidebar = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className="flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-00 dark:hover:bg-gray-700"
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='investment'?"bg-primary-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -108,7 +113,7 @@ export const Sidebar = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className="flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700"
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='profile'?"bg-primary-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -133,6 +138,7 @@ export const Sidebar = () => {
 };
 
 export const Sidebar2 = () => {
+  const segment = useSelectedLayoutSegment();
   return (
     <aside
       id="logo-sidebar"
@@ -154,7 +160,7 @@ export const Sidebar2 = () => {
           <li>
             <Link
               href="/dashboard"
-              className="flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700"
+              className={`flex items-center p-2 px-3 rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment===null?"bg-primary-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -173,7 +179,7 @@ export const Sidebar2 = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className="flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700"
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='savings'?"bg-primary-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -194,7 +200,7 @@ export const Sidebar2 = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className="flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700"
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='loans'?"bg-primary-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -215,7 +221,7 @@ export const Sidebar2 = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className="flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-00 dark:hover:bg-gray-700"
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-00 dark:hover:bg-gray-700 ${segment==='investment'?"bg-primary-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -236,7 +242,7 @@ export const Sidebar2 = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className="flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700"
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==="profile"?"bg-primary-dark":""}`}
             >
               <svg
                 aria-hidden="true"

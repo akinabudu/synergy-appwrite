@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import FullLogoSvg from "@/app/appComponents/assets/logo/svg/Color_logo_nobackground.svg";
 import Link from "next/link";
-
+import { RxCaretDown } from "react-icons/rx";
 import { Logout } from "@/app/appwrite/logout";
 import Hacker from "../../appComponents/assets/hacker_ai.png";
 
@@ -27,7 +27,9 @@ export default function Header({
           <div className="flex items-center justify-between px-5">
             <div className="flex items-center justify-start">
               <button
-                onClick={() => {setOpenMenu(!openMenu)}}
+                onClick={() => {
+                  setOpenMenu(!openMenu);
+                }}
                 data-drawer-target="logo-sidebar"
                 data-drawer-toggle="logo-sidebar"
                 aria-controls="logo-sidebar"
@@ -58,30 +60,37 @@ export default function Header({
                   height={50}
                 />
               </Link> */}
-              <div className=" ml-5 text-lg font-normal text-gray-900"> Good Morning, <span className='font-bold'>Mr. Lambo</span> </div>
+              <div className=" ml-5 text-lg font-normal text-gray-900">
+                {" "}
+                Good Morning, <span className="font-bold">Mr. Lambo</span>{" "}
+              </div>
             </div>
             <div className="flex items-center">
-              <div className="flex items-center mr-5">
+              <div className="flex items-center mr-5 ">
                 <button
-                  onClick={() => setOpen(!open)}
+                  onClick={() => {setOpen(!open)}}
                   type="button"
-                  className="flex text-sm  bg-gray-800 rounded-full focus:ring-2 focus:ring-primary dark:focus:ring-gray-600"
+                  className="flex text-sm gap-3 p-2 items-center group hover:bg-primary hover:text-gray-100 rounded-full focus:ring-1 focus:ring-primary dark:focus:ring-gray-600"
                   aria-expanded="false"
                   data-dropdown-toggle="dropdown-user"
+                  id="trigger-id"
                 >
                   <span className="sr-only">Open user menu</span>
                   <Image
-                    className="w-8 h-8 object-cover rounded-full"
+                    className="w-8 h-8 object-cover transition-opacity rounded-full"
                     src={Hacker}
                     alt="user photo"
                     width={18}
                     height={18}
                   />
+                  <span className="text-gray-600 group-hover:text-gray-100">
+                    lamborambo@go.com
+                  </span>{" "}
+                  <RxCaretDown />
                 </button>
-
                 {open && (
-                  <div
-                    className="z-50 absolute top-10 right-5 my-4 text-base list-none bg-gray-dark text-gray-mid  divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+                  <div 
+                    className="z-50 absolute top-12 right-13 my-5 text-base list-none bg-primary text-white  divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 transition-opacity duration-200"
                     id="dropdown-user"
                   >
                     <div className="px-4 py-3" role="none">
@@ -99,16 +108,16 @@ export default function Header({
                       <li>
                         <Link
                           href="/dashboard"
-                          className="block px-4 py-2 text-sm  hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                          className="block px-4 py-2 text-sm  hover:bg-primary-dark dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                           role="menuitem"
                         >
-                          Dashboard
+                          Profile
                         </Link>
                       </li>
                       <li>
                         <Link
                           href="#"
-                          className="block px-4 py-2 text-sm  hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                          className="block px-4 py-2 text-sm  hover:bg-primary-dark dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                           role="menuitem"
                         >
                           Settings
@@ -117,7 +126,7 @@ export default function Header({
                       <li>
                         <Link
                           href="#"
-                          className="block px-4 py-2 text-sm  hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                          className="block px-4 py-2 text-sm  hover:bg-primary-dark dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                           role="menuitem"
                         >
                           Earnings
@@ -127,7 +136,7 @@ export default function Header({
                         <Link
                           onClick={() => Logout()}
                           href="#"
-                          className="block px-4 py-2 text-sm  hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                          className="block px-4 py-2 text-sm  hover:bg-primary-dark dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                           role="menuitem"
                         >
                           Sign out

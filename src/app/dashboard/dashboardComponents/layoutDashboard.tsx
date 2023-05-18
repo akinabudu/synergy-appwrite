@@ -10,7 +10,7 @@ import { ConfirmMagic, CreateMagic } from "../../appwrite/magicUrl";
 import Header from "./header";
 import { CheckAccount } from "@/app/appwrite/checkAccount";
 import LoginForm from "./loginComponents/form";
-import LoginPage from "./login";
+import LoginPage from "./loginComponents/login";
 import { CreateJWT } from "@/app/appwrite/createJWT";
 import Loading from "../loading";
 import { Client, Account } from "appwrite";
@@ -70,10 +70,10 @@ export default function DashboardLayout({ children }: any) {
           open={open}
         />
 
-        <div className="p-4 h-[80vh]   bg-gray-200 w-full sm:w-full mt-16">
+        <div className="p-4 h-[80vh] overflow-auto  bg-gray-200 w-full sm:w-full mt-16">
           {children}
         </div>
-        <div className="h-[10vh] ">Footer</div>
+        <div className="h-[10vh] text-white ">Footer</div>
       </div>
       {/* </div> */}
     </div>

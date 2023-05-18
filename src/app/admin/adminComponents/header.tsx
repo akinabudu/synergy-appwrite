@@ -5,7 +5,11 @@ import FullLogoSvg from "@/app/appComponents/assets/logo/svg/Color_logo_nobackgr
 import Link from "next/link";
 
 import { Logout } from "@/app/appwrite/logout";
-// import Hacker from "/public/hacker_ai.png";
+import Hacker from "../../../../public/hacker_ai.png";
+import Search from "./headerComponents/Search";
+import Date from "./headerComponents/Date";
+import Notification from "./headerComponents/Notification";
+
 
 interface HeaderProps {
   setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
@@ -22,10 +26,10 @@ export default function Header({
 }: HeaderProps) {
   return (
     <>
-      <nav className="fixed h-[10vh] m-5  w-[80vw] rounded-md bg-white shadow-md dark:bg-gray-800 dark:border-gray-700">
-        <div className="px-3 py-3 lg:px-5 lg:pl-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center justify-start">
+      <nav className="fixed h-[10vh] m-5  w-[90vw] md:w-[80vw] rounded-md bg-white shadow-md dark:bg-gray-800 dark:border-gray-700 items-center p-3">
+        {/* <div className="px-3 py-3 lg:px-5 lg:pl-3"> */}
+          <div className="flex items-center justify-between w-full">
+            <div className="flex items-center justify-start md:justify-between w-full ">
               <button
                 onClick={() => setOpenMenu(!openMenu)}
                 data-drawer-target="logo-sidebar"
@@ -58,9 +62,12 @@ export default function Header({
                   height={50}
                 />
               </Link> */}
+              <Search/>
+              <Date/>
+              <Notification/>
             </div>
-            <div className="flex items-center">
-              <div className="flex items-center mr-5">
+            {/* <div className="flex items-center"> */}
+              <div className="flex items-center  mr-5">
                 <button
                   onClick={() => setOpen(!open)}
                   type="button"
@@ -69,13 +76,13 @@ export default function Header({
                   data-dropdown-toggle="dropdown-user"
                 >
                   <span className="sr-only">Open user menu</span>
-                  {/* <Image
-                    className="w-8 h-8 object-cover rounded-full"
+                  <Image
+                    className="w-8 h-8 object-cover hover:border hover:border-primary rounded-full"
                     src={Hacker}
                     alt="user photo"
                     width={18}
                     height={18}
-                  /> */}
+                  />
                 </button>
 
                 {open && (
@@ -136,9 +143,9 @@ export default function Header({
                   </div>
                 )}
               </div>
-            </div>
+            {/* </div> */}
           </div>
-        </div>
+        {/* </div> */}
       </nav>
     </>
   );

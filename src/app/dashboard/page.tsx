@@ -1,6 +1,6 @@
-import CardItems from "./dashboardComponents/cardComponents/CardItems";
-import Chart from "./dashboardComponents/chartComponents/Chart";
-import TransactionHistory from "./dashboardComponents/transactionsComponent/TransctionHistory";
+import CardItems from "./card/CardItems";
+// import Chart from "./dashboardComponents/chartComponents/Chart";
+import TransactionHistory from "./transactions/TransctionHistory";
 
 export default async function DashboardPage() {
   return (

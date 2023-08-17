@@ -1,7 +1,7 @@
 'use client'
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import Image from "next/image";
-import Logo from "/public/projectlogo.png";
+import Logo from "@/app/appComponents/assets/logo/synergy_logo.jpeg";
 
 export default function Verify() {
   return (
@@ -14,17 +14,17 @@ export default function Verify() {
           width={100}
           alt="Your Company"
         />
-            <h2 className="text-center text-3xl font-bold tracking-tight text-[#C19807]">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-primary">
               NIMBUS-AI
             </h2>
           <div className="flex flex-row text-white text-center justify-center items-center">
             <MailOutlineIcon className="px-2 text-primary text-5xl" />
-            <div className="text-bold text-2xl text-white">
+            <div className="text-bold text-2xl text-primary">
               Check your email
             </div>
           </div>
 
-          <div className="text-bold text-md text-[#C19807]">
+          <div className="text-bold text-md text-primary-dark">
             A sign in link has been sent to your email address.
           </div>
         {/* </div> */}

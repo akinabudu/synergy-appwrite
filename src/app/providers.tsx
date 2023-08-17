@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { UserDetailsContext } from "./lib/Context";
+import { UserDetailsContext } from "../lib/Context";
 import AOS from "aos";
 
 type UserDetails = {

@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import FullLogoSvg from "@/app/appComponents/assets/logo/svg/Color_logo_nobackground.svg";
+// import FullLogoSvg from "@/app/appComponents/assets/logo/svg/Color_logo_nobackground.svg";
 import Link from "next/link";
 import { RxCaretDown } from "react-icons/rx";
-import { Logout } from "@/app/appwrite/logout";
-import Hacker from "../../appComponents/assets/hacker_ai.png";
+// import { Logout } from "@/app/appwrite/logout";
+import Hacker from "../assets/hacker_ai.png";
 
 interface HeaderProps {
   setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
@@ -22,7 +22,7 @@ export default function Header({
 }: HeaderProps) {
   return (
     <>
-      <nav className="fixed h-[10vh] w-full  md:w-[85vw] bg-white shadow-lg dark:bg-gray-800 dark:border-gray-700">
+      <nav className="fixed z-10 h-[10vh] w-full  md:w-[85vw] bg-white shadow-lg dark:bg-gray-800 dark:border-gray-700">
         <div className="px-3 py-3 md:px-5 md:pl-3">
           <div className="flex items-center justify-between px-5">
             <div className="flex items-center justify-start">
@@ -90,7 +90,7 @@ export default function Header({
                 </button>
                 {open && (
                   <div 
-                    className="z-50 absolute top-12 right-13 my-5 text-base list-none bg-primary text-white  divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 transition-opacity duration-200"
+                    className="z-100 absolute top-12 right-13 my-5 text-base list-none bg-primary text-white  divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 transition-opacity duration-200"
                     id="dropdown-user"
                   >
                     <div className="px-4 py-3" role="none">
@@ -134,7 +134,7 @@ export default function Header({
                       </li>
                       <li>
                         <Link
-                          onClick={() => Logout()}
+                          // onClick={() => Logout()}
                           href="#"
                           className="block px-4 py-2 text-sm  hover:bg-primary-dark dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                           role="menuitem"

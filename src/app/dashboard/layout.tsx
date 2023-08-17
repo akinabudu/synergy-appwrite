@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import DashboardLayout from './dashboardComponents/layoutDashboard'
+import DashboardLayout from './layoutDashboard'
 
 interface layoutProps {
   children:any

@@ -6,7 +6,7 @@ import { useRouter, redirect } from "next/navigation";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { ConfigItems } from "../../../.config";
-import { ConfirmMagic, CreateMagic } from "../../appwrite/magicUrl";
+import { ConfirmMagic, CreateMagic } from "../../appwrite/login";
 import Header from "./header";
 import { CheckAccount } from "@/app/appwrite/checkAccount";
 import LoginForm from "../../dashboard/dashboardComponents/loginComponents/form";

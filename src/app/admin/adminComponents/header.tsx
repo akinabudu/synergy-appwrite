@@ -4,7 +4,7 @@ import Image from "next/image";
 import FullLogoSvg from "@/app/appComponents/assets/logo/svg/Color_logo_nobackground.svg";
 import Link from "next/link";
 
-import { Logout } from "@/app/appwrite/logout";
+// import { Logout } from "@/app/appwrite/logout";
 import Hacker from "../../../../public/hacker_ai.png";
 import Search from "./headerComponents/Search";
 import Date from "./headerComponents/Date";
@@ -131,7 +131,7 @@ export default function Header({
                       </li>
                       <li>
                         <Link
-                          onClick={() => Logout()}
+                          // onClick={() => Logout()}
                           href="#"
                           className="block px-4 py-2 text-sm  hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                           role="menuitem"

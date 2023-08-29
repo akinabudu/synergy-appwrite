@@ -14,17 +14,17 @@ export default function Verify() {
           width={100}
           alt="Your Company"
         />
-            <h2 className="text-center text-3xl font-bold tracking-tight text-primary">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-[#2E052E]">
               NIMBUS-AI
             </h2>
           <div className="flex flex-row text-white text-center justify-center items-center">
-            <MailOutlineIcon className="px-2 text-primary text-5xl" />
-            <div className="text-bold text-2xl text-primary">
+            <MailOutlineIcon className="px-2 text-[#2E052E] text-5xl" />
+            <div className="text-bold text-2xl text-[#2E052E]">
               Check your email
             </div>
           </div>
 
-          <div className="text-bold text-md text-primary-dark">
+          <div className="text-bold text-md text-[#2E052E]-dark">
             A sign in link has been sent to your email address.
           </div>
         {/* </div> */}

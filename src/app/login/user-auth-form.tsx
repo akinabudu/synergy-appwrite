@@ -9,8 +9,11 @@ import { uid } from "uid/secure";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Input } from "@/components/ui/input";
-import { CreateMagicUrl, GetOAuth } from "../appwrite/login";
+// import { CreateMagicUrl, GetOAuth } from "../appwrite/login";
 import { useToast } from "@/components/ui/use-toast";
+import { Client, Account } from "appwrite";
+
+
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -20,16 +23,22 @@ const SignInSchema = Yup.object({
 
 const providers = [
   { name: "Github", icon: Icons.gitHub, id: "github" },
-  { name: "Gmail", icon: Icons.google, id: "gmail" },
+  { name: "Gmail", icon: Icons.google, id: "google" },
 ];
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const { toast } = useToast();
   const userId = uid();
+  const client = new Client();
+const account = new Account(client);
+
+client
+  .setEndpoint(`${process.env.NEXT_PUBLIC_APPWRITE_URL}`) // Your API Endpoint
+  .setProject(`${process.env.NEXT_PUBLIC_APPWRITE_ID}`); // Your project
 
   async function providerClick(provider: string) {
     setIsLoading(true);
-    await GetOAuth(provider);
+    account.createOAuth2Session(provider, `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/dashboard`);
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
@@ -43,15 +52,32 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
 
     onSubmit: async (values) => {
       setIsLoading(true);
-      await CreateMagicUrl(userId, values.email,`${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/dashboard`).finally(() =>
-        setTimeout(() => {
-          toast({
-            title: "Link has been sent to your email.",
-            description: "Check your Email for Login.",
-          });
-          setIsLoading(false);
-        }, 3000)
-      );
+      const promise = account.createMagicURLSession(userId, values.email, `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/dashboard`);
+
+  promise.then(
+    function (response) {
+      setTimeout(() => {
+        toast({
+          title: "Link has been sent to your email.",
+          description: "Check your Email for Login.",
+        });
+        setIsLoading(false);
+      }, 3000)
+      console.log(response); // Success
+    },
+    function (error) {
+      console.log(error); // Failure
+    }
+  );
+      // await CreateMagicUrl(userId, values.email,`${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/dashboard`).finally(() =>
+      //   setTimeout(() => {
+      //     toast({
+      //       title: "Link has been sent to your email.",
+      //       description: "Check your Email for Login.",
+      //     });
+      //     setIsLoading(false);
+      //   }, 3000)
+      // );
     },
   });
 

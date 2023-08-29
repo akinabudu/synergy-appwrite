@@ -83,14 +83,14 @@ export default function AuthenticationPage() {
               By clicking continue, you agree to our{" "}
               <Link
                 href="/terms"
-                className="underline underline-offset-4 hover:text-primary"
+                className="underline underline-offset-4 hover:text-[#2E052E]"
               >
                 Terms of Service
               </Link>{" "}
               and{" "}
               <Link
                 href="/privacy"
-                className="underline underline-offset-4 hover:text-primary"
+                className="underline underline-offset-4 hover:text-[#2E052E]"
               >
                 Privacy Policy
               </Link>

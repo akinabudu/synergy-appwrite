@@ -1,19 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
-import { UserDetailsContext } from "../lib/Context";
+// import { UserDetailsContext } from "../lib/Context";
 import AOS from "aos";
 
-type UserDetails = {
-  studentExamId?: string;
-  quizPassed?: boolean;
-  labFinished?: boolean;
-  startLabTime_Mili?: number;
-  labDuration?: number;
-  email?: string;
-};
+// type UserDetails = {
+//   studentExamId?: string;
+//   quizPassed?: boolean;
+//   labFinished?: boolean;
+//   startLabTime_Mili?: number;
+//   labDuration?: number;
+//   email?: string;
+// };
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
-  const [userDetails, setUserDetails] = useState<UserDetails[]>([]);
+  // const [userDetails, setUserDetails] = useState<UserDetails[]>([]);
 
   useEffect(()=>{
     AOS.init({
@@ -24,9 +24,9 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-        <UserDetailsContext.Provider value={{ userDetails, setUserDetails }}>
+        {/* <UserDetailsContext.Provider value={{ userDetails, setUserDetails }}> */}
           {children}
-        </UserDetailsContext.Provider>
+        {/* </UserDetailsContext.Provider> */}
     </>
   );
 };

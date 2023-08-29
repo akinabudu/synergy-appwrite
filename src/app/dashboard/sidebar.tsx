@@ -14,10 +14,10 @@ export const Sidebar = () => {
       className={`block md:hidden  h-screen pt-20 transition-transform -translate-x-full bg-transparent  sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
       aria-label="Sidebar"
     >
-      <div className=" top-0 left-5 h-full w-fit pt-5 px-3 pb-4  overflow-y-auto text-white bg-primary rounded-tr-lg dark:bg-gray-800">
+      <div className=" top-0 left-5 h-full w-fit pt-5 px-3 pb-4  overflow-y-auto text-white bg-[#2E052E] rounded-tr-lg dark:bg-gray-800">
         <div className="flex flex-col justify-center items-center gap-2 my-5">
           {/* <Image
-            className="w-10 h-10 rounded-full border border-primary"
+            className="w-10 h-10 rounded-full border border-[#2E052E]"
             src="/docs/images/people/profile-picture-5.jpg"
             alt="Rounded avatar"
             width={10}
@@ -31,7 +31,7 @@ export const Sidebar = () => {
           <li>
             <Link
               href="/dashboard"
-              className={`flex items-center p-2 px-2 rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='dashboard'?"bg-primary-dark":""}`}
+              className={`flex items-center p-2 px-2 rounded-lg dark:text-white group hover:bg-[#2E052E]-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='dashboard'?"bg-[#2E052E]-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -50,7 +50,7 @@ export const Sidebar = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='savings'?"bg-primary-dark":""}`}
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-[#2E052E]-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='savings'?"bg-[#2E052E]-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -71,7 +71,7 @@ export const Sidebar = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='loans'?"bg-primary-dark":""}`}
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-[#2E052E]-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='loans'?"bg-[#2E052E]-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -92,7 +92,7 @@ export const Sidebar = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='investment'?"bg-primary-dark":""}`}
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-[#2E052E]-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='investment'?"bg-[#2E052E]-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -113,7 +113,7 @@ export const Sidebar = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='profile'?"bg-primary-dark":""}`}
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-[#2E052E]-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='profile'?"bg-[#2E052E]-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -145,10 +145,10 @@ export const Sidebar2 = () => {
       className={`hidden md:block md:w-1/5 h-screen p-5 transition-transform -translate-x-full bg-transparent  sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
       aria-label="Sidebar"
     >
-      <div className="  h-full w-fit pt-5 px-3 pb-4  overflow-y-auto text-white bg-gray-dark rounded-tr-lg dark:bg-gray-800">
+      <div className="  h-full w-fit pt-5 px-3 pb-4  overflow-y-auto text-white bg-gray-50 rounded-tr-lg dark:bg-gray-800">
         <div className="flex justify-center items-center gap-2 mb-10">
           {/* <Image
-              className="w-10 h-10 rounded-full border border-primary"
+              className="w-10 h-10 rounded-full border border-[#2E052E]"
               src="/docs/images/people/profile-picture-5.jpg"
               alt="Rounded avatar"
               width={10}
@@ -160,7 +160,7 @@ export const Sidebar2 = () => {
           <li>
             <Link
               href="/dashboard"
-              className={`flex items-center p-2 px-3 rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment===null?"bg-primary-dark":""}`}
+              className={`flex items-center p-2 px-3 rounded-lg dark:text-white group hover:bg-[#2E052E]-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment===null?"bg-[#2E052E]-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -179,7 +179,7 @@ export const Sidebar2 = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='savings'?"bg-primary-dark":""}`}
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-[#2E052E]-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='savings'?"bg-[#2E052E]-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -200,7 +200,7 @@ export const Sidebar2 = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='loans'?"bg-primary-dark":""}`}
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-[#2E052E]-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==='loans'?"bg-[#2E052E]-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -221,7 +221,7 @@ export const Sidebar2 = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-00 dark:hover:bg-gray-700 ${segment==='investment'?"bg-primary-dark":""}`}
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-[#2E052E]-dark hover:text-gray-00 dark:hover:bg-gray-700 ${segment==='investment'?"bg-[#2E052E]-dark":""}`}
             >
               <svg
                 aria-hidden="true"
@@ -242,7 +242,7 @@ export const Sidebar2 = () => {
           <li>
             <Link
               href="/dashboard/#"
-              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-primary-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==="profile"?"bg-primary-dark":""}`}
+              className={`flex items-center p-2  rounded-lg dark:text-white group hover:bg-[#2E052E]-dark hover:text-gray-100 dark:hover:bg-gray-700 ${segment==="profile"?"bg-[#2E052E]-dark":""}`}
             >
               <svg
                 aria-hidden="true"

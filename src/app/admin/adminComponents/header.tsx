@@ -36,7 +36,7 @@ export default function Header({
                 data-drawer-toggle="logo-sidebar"
                 aria-controls="logo-sidebar"
                 type="button"
-                className="inline-flex items-center p-2 text-sm text-primary rounded-lg md:hidden hover:bg-gray-dark focus:outline-none focus:ring-2 focus:ring-primary dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                className="inline-flex items-center p-2 text-sm text-[#2E052E] rounded-lg md:hidden hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#2E052E] dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               >
                 <span className="sr-only">Open sidebar</span>
                 <svg
@@ -71,13 +71,13 @@ export default function Header({
                 <button
                   onClick={() => setOpen(!open)}
                   type="button"
-                  className="flex text-sm  bg-gray-800 rounded-full focus:ring-2 focus:ring-primary dark:focus:ring-gray-600"
+                  className="flex text-sm  bg-gray-800 rounded-full focus:ring-2 focus:ring-[#2E052E] dark:focus:ring-gray-600"
                   aria-expanded="false"
                   data-dropdown-toggle="dropdown-user"
                 >
                   <span className="sr-only">Open user menu</span>
                   <Image
-                    className="w-8 h-8 object-cover hover:border hover:border-primary rounded-full"
+                    className="w-8 h-8 object-cover hover:border hover:border-[#2E052E] rounded-full"
                     src={Hacker}
                     alt="user photo"
                     width={18}
@@ -87,7 +87,7 @@ export default function Header({
 
                 {open && (
                   <div
-                    className="z-50 absolute top-10 right-5 my-4 text-base list-none bg-gray-dark text-gray-mid  divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+                    className="z-50 absolute top-10 right-5 my-4 text-base list-none bg-gray-50 text-gray-mid  divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
                     id="dropdown-user"
                   >
                     <div className="px-4 py-3" role="none">

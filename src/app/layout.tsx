@@ -1,5 +1,5 @@
 import { Providers } from "./providers";
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/components/ui/toaster";
 
 // import { inter, roboto, manrope } from "./fonts";
 import "./globals.css";
@@ -16,12 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body> 
+      <body>
         {/* className={manrope.className}> */}
         <Providers>
-<Toaster/>
+          <Toaster />
           {children}
-          </Providers>
+        </Providers>
       </body>
     </html>
   );

@@ -54,7 +54,7 @@ export default function DashboardLayout({ children }: any) {
   // }
 
   return true ? (
-    <div className="flex bg-primary justify-start">
+    <div className="flex bg-[#2E052E] justify-start">
       <div className="w-0 md:w-1/6 z-20">
         {openMenu ? (
           <Sidebar />

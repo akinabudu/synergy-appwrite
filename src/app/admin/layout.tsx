@@ -1,5 +1,5 @@
 import React from 'react'
-import AdminDashboardLayout from './adminComponents/layoutAdminDashboard'
+import AdminDashboardLayout from '../../components/admin/layoutAdminDashboard'
  
 
 const LayoutAdmin = ({children}:{ children: React.ReactNode }) => {

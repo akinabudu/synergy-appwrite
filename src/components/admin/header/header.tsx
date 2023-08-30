@@ -8,7 +8,7 @@ import { redirect, useRouter } from "next/navigation";
 // import Avatar from "@/app/assets/img/avatar.png";
 import { RxCaretDown } from "react-icons/rx";
 // import Announcement from "./alert";
-import Loading from "../loading";
+import Loading from "../../../app/loading";
 import { SettingsMenu } from "@/lib/data/settings";
 // import { on } from "nodemailer/lib/xoauth2";
 import { HiMenuAlt2 } from "react-icons/hi";
@@ -93,7 +93,7 @@ export default function Header({
 
   return (
     <>
-      <nav className="fixed flex items-center justify-between  py-2  lg:pl-3 top-0 right-0 mb-5 w-full  bg-white shadow-lg  shadow-gray-dark dark:bg-gray-800 dark:border-gray-700">
+      <nav className="fixed flex items-center justify-between h-[10vh] py-2  lg:pl-3 top-0 right-0 mb-5 w-full  bg-white shadow-lg  shadow-gray-dark dark:bg-gray-800 dark:border-gray-700">
         <div className="flex items-center justify-start">
           <Button
             onClick={() => setOpenMenu(!openMenu)}
@@ -101,30 +101,32 @@ export default function Header({
             data-drawer-toggle="logo-sidebar"
             aria-controls="logo-sidebar"
             type="button"
-            className="inline-flex items-center p-2 text-sm text-[#2E052E] rounded-lg md:hidden bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#2E052E] dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center p-2 text-sm text-[#29651d] rounded-lg md:hidden bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#29651d] dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           >
             <span className="sr-only">Open sidebar</span>
             <HiMenuAlt2 />
           </Button>
         </div>
-        {/* <Button className="  font-bold md:py-1 px-1 md:px-8 rounded-lg h-1/3 bg-gray-50 text-[#2E052E] md:text-md text-[10px] hover:text-gray-mid shadow-md shadow-gray-700">
-          Purchase Access
-        </Button> */}
+        <div className=" md:py-1 ml-5 px-1 md:px-8   text-[#29651d] md:text-lg text-sm ">
+          Admin Dashboard
+        </div>
         <div className="w-[30%]">{/* <Search/> */}</div>
 
         {/* <Announcement /> */}
         <div className="flex items-center  justify-center gap-2 md:pr-2 md:mx-5">
-          {/* <div className="bg-gray-50 font-[roboto] text-gray-mid shadow-inner rounded md:py-1 md:px-16 px-1 text-[10px] md:text-md">
-            Timer
-          </div> */}
-          <button
+          <Link
+            href={"/dashboard"}
+            className="bg-gray-50 border text-[#29651d] hover:bg-[#54f434]/20 hover:text-black font-[roboto]  shadow rounded md:py-1 md:px-16 px-1 text-[10px] md:text-md"
+          >
+            Go to User Dashboard
+          </Link>
+          <Button
             onClick={() => setOpen(!open)}
             type="button"
-            className="flex text-sm  items-center  justify-center gap-2 pr-2 mx-5 hover:font-bold hover:ring-2 rounded-full md:focus:ring-2 md:focus:ring-[#2E052E] dark:focus:ring-gray-600"
+            className="flex text-sm  items-center bg-gray-50 hover:bg-[#54f434]/20 justify-center gap-2 pr-2 mx-5 hover:font-bold hover:ring-2 rounded-full md:focus:ring-2 md:focus:ring-[#29651d] dark:focus:ring-gray-600"
             aria-expanded="false"
             data-dropdown-toggle="dropdown-user"
           >
-            <span className="sr-only">Open user menu</span>
             <Image
               className="w-8 h-8 object-cover rounded-full"
               src={
@@ -137,19 +139,17 @@ export default function Header({
               height={18}
             />
             <div className="hidden md:flex md:items-center ">
-              <div className="text-sm text-[#2E052E] ">
-                {username}
-              </div>
+              <div className="text-sm text-[#29651d] ">{username}</div>
               <RxCaretDown color="gray" size={24} />
             </div>
-          </button>
+          </Button>
           {open && (
             <div
-              className="z-50 w-2/3 md:w-1/6 absolute top-10 right-30 md:right-15 mt-2 text-base list-none bg-gray-50 hover:text-gray-100 text-gray-100  divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+              className="z-50 w-2/3 md:w-1/6 absolute top-14 right-30 md:right-10 mt-2 text-base list-none bg-gray-50 hover:text-gray-100 text-gray-100  divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
               id="dropdown-user"
             >
               <div
-                className="px-6 py-1 font-bold bg-[#2E052E] text-lg text-black space-y-1"
+                className="px-6 py-1 font-bold bg-[#29651d] text-lg text-black space-y-1"
                 role="none"
               >
                 <p className="text-sm text-white" role="none">
@@ -162,7 +162,7 @@ export default function Header({
                     key={index}
                     onClick={() => handleHeaderClick(item.title)}
                     href={item.href}
-                    className={`block px-4 py-2 text-sm text-black hover:text-white hover:bg-[#2E052E] dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white shadow-gray-700`}
+                    className={`block px-4 py-2 text-sm text-black hover:text-white hover:bg-[#29651d] dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white shadow-gray-700`}
                     role="menuitem"
                   >
                     {item.title}

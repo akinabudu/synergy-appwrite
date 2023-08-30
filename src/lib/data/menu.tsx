@@ -1,95 +1,96 @@
-import {
-    MdSpaceDashboard,
-    MdLiveTv,
-    MdOutlineNotificationsNone,
-    MdLocalLibrary
-  } from "react-icons/md";
-  import { TbBuildingCommunity } from "react-icons/tb";
-  import {ImBooks} from 'react-icons/im'
-  import {FaQuestionCircle,FaAward} from "react-icons/fa"
-  // import {LuSchool2} from "react-icons/lu"
-
-  // import {FaQuestionCircle,FaAward} from "react-icons/fa"
-
+import { MdSpaceDashboard, MdLocalLibrary } from "react-icons/md";
+import { ImBooks } from "react-icons/im";
+import { FaQuestionCircle, FaAward } from "react-icons/fa";
 
 export const SideBarMenu = [
-    // {
-    //   title: "EDUCATION",
-    //   href: "#",
-    //   icon: "",
-    //   segment: "",
-    // },
-    {
-      title: "My Account",
-      href: "/dashboard",
-      icon: <MdSpaceDashboard />,
-      segment: null,
-    },
-    {
-      title: "Savings",
-      href: "/dashboard/savings",
-      icon: <ImBooks />,
-      segment: "savings",
-    },
-    // {
-    //   title: "SUPPORT",
-    //   href: "#",
-    //   icon: "",
-    //   segment: "",
-    // },
-    {
-      title: "Loans",
-      href: "/dashboard/loans",
-      icon: <MdLocalLibrary />,
-      segment: "loans",
-    },
-    // {
-    //   title: "Invest",
-    //   href: "https://discord.gg/8gx5au6F",
-    //   icon: <TbBuildingCommunity />,
-    //   segment: "community",
-    // },
-    // {
-    //   title: "Live Mentorship",
-    //   href: "/dashboard/mentorship",
-    //   icon: <MdLiveTv />,
-    //   segment: "mentorship",
-    // },
-    {
-      title: "Investments",
-      href: "/dashboard/investments",
-      icon: <FaQuestionCircle />,
-      segment: "investments",
-    },
-    // {
-    //   title: "AWARDS",
-    //   href: "#",
-    //   icon: "",
-    //   segment: "",
-    // },
-  
-    {
-      title: "Settings",
-      href: "/settings",
-      icon: <FaAward />,
-      segment: "settings",
-    },
-    // {
-    //   title: "My Badges",
-    //   href: "/dashboard/badges",
-    //   icon: <MdSpaceDashboard />,
-    //   segment: "achievements",
-    // },
-    // {
-    //   title: "OTHERS",
-    //   href: "#",
-    //   icon: "",
-    //   segment: "",
-    // },
-    // {
-    //   title: "Notifications",
-    //   href: "/dashboard/notifications",
-    //   icon: <MdOutlineNotificationsNone />,
-    //   segment: "notifications",
-    // },
-  ];
+  {
+    title: "My Account",
+    href: "/dashboard",
+    icon: <MdSpaceDashboard />,
+    segment: null,
+  },
+  {
+    title: "Savings",
+    href: "/dashboard/savings",
+    icon: <ImBooks />,
+    segment: "savings",
+  },
+
+  {
+    title: "Loans",
+    href: "/dashboard/loans",
+    icon: <MdLocalLibrary />,
+    segment: "loans",
+  },
+
+  {
+    title: "Investments",
+    href: "/dashboard/investments",
+    icon: <FaQuestionCircle />,
+    segment: "investments",
+  },
+
+  {
+    title: "Settings",
+    href: "/settings",
+    icon: <FaAward />,
+    segment: "settings",
+  },
+];
+
+
+
+export const AdminSideBarMenu = [
+  {
+    title: "Overview",
+    href: "/admin",
+    icon: <MdSpaceDashboard />,
+    segment: null,
+  },
+  {
+    title: "Users",
+    href: "/admin/users",
+    icon: <ImBooks />,
+    segment: "users",
+  },
+  {
+    title: "Accounts",
+    href: "/admin/accounts",
+    icon: <ImBooks />,
+    segment: "accounts",
+  },
+  {
+    title: "Savings",
+    href: "/admin/savings",
+    icon: <ImBooks />,
+    segment: "savings",
+  },
+
+  {
+    title: "Loans",
+    href: "/admin/loans",
+    icon: <MdLocalLibrary />,
+    segment: "loans",
+  },
+
+  {
+    title: "Investments",
+    href: "/admin/investments",
+    icon: <FaQuestionCircle />,
+    segment: "investments",
+  },
+  {
+    title: "Announcements",
+    href: "/admin/announcements",
+    icon: <FaQuestionCircle />,
+    segment: "announcements",
+  },
+
+  {
+    title: "Settings",
+    href: "/settings",
+    icon: <FaAward />,
+    segment: "settings",
+  },
+];
+

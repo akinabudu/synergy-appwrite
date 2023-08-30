@@ -1,36 +1,21 @@
 "use client";
 import React, { useEffect, useState } from "react";
-// import axios from "axios";
-// import Link from "next/link";
-// import { useRouter, redirect } from "next/navigation";
-// import Image from "next/image";
 import { redirect, useRouter, useSearchParams } from "next/navigation";
-import Header from "./header";
-// import LoginPage from "./login";
-// import { CreateJWT } from "@/app/appwrite/createJWT";
-// import Loading from "../loading";
-// import { Client, Account } from "appwrite";
-// import { Sidebar, Sidebar2 } from "./sidebar";
-// import { ConfirmMagicUrl } from "../appwrite/login";
+import Header from "./header/header";
 import { Client, Account } from "appwrite";
 import Link from "next/link";
 import Image from "next/image";
 import { useSelectedLayoutSegment } from "next/navigation";
-import {
-  useLoading,
-  userCourse,
-  userData,
-  userProviderContext,
-} from "@/lib/Context";
+import { userData } from "@/lib/Context";
 import { useAtom } from "jotai";
-import { SideBarMenu } from "@/lib/data/menu";
+import { AdminSideBarMenu } from "@/lib/data/menu";
 
-export default function DashboardLayout({ children }: any) {
+export default function AdminDashboardLayout({ children }: any) {
   const [loading, setLoading] = useState<boolean>(true);
   const [userDetails, setUserDetails] = useAtom(userData);
   const [open, setOpen] = useState<boolean>(false);
   const [openMenu, setOpenMenu] = useState<boolean>(false);
-  const [userSession, setUserSession] = useState<boolean>(false);
+  const [userSession, setUserSession] = useState<any>();
   const router = useRouter();
   const searchParams = useSearchParams();
   const secret = searchParams.get("secret");
@@ -49,11 +34,17 @@ export default function DashboardLayout({ children }: any) {
 
       getUserSession.then(
         function (response) {
-          setUserSession(true);
-          console.log(response); // Success
+          if(response.userId === process.env.NEXT_PUBLIC_ADMIN_ID){
+
+            setUserSession(response);
+            console.log("Session: ",response); // Success
+          }else{
+            // setUserSession(false);
+          router.push("/login");
+          }
         },
         function (error) {
-          setUserSession(false);
+          // setUserSession(false);
           console.log(error); // Failure
           router.push("/login");
         }
@@ -78,8 +69,8 @@ export default function DashboardLayout({ children }: any) {
 
     getUserAccount.then(
       function (response) {
-        setUserDetails(response)
-        console.log(response); // Success
+        setUserDetails(response);
+        console.log("User: ",response); // Success
       },
       function (error) {
         console.log(error); // Failure
@@ -109,14 +100,14 @@ export default function DashboardLayout({ children }: any) {
             username={userDetails?.name}
             email={userDetails?.email}
             avatar={userDetails?.profileAvatarId}
-            id={userDetails?.id}
+            id={userSession.userId}
           />
 
           <aside
             id="logo-sidebar"
             className={`${
               openMenu ? "absolute z-50 left-0 top-12 w-[50%] " : "hidden"
-            } md:top-20 md:left-0 md:flex md:flex-col group/side hover:md:w-[15%] transition duration-700 ease-in-out md:w-[5%] hover:md:left-0  md:h-screen  pb-5 pt-0 md:pt-5 shadow-sm shadow-[#2E052E] z-50 px-2 text-white bg-[#2E052E] `}
+            } md:top-20 md:left-0 md:flex md:flex-col group/side hover:md:w-[15%] transition duration-700 ease-in-out md:w-[5%] hover:md:left-0  md:h-screen  pb-5 pt-0 md:pt-5 shadow-sm shadow-[#29651d] z-50 px-2 text-white bg-[#29651d] `}
             aria-label="Sidebar"
           >
             <Link
@@ -146,14 +137,14 @@ export default function DashboardLayout({ children }: any) {
               />
             </Link>
             <hr className="mb-8" />
-            {SideBarMenu.map((menu, index) => (
+            {AdminSideBarMenu.map((menu, index) => (
               <Link
                 key={index}
                 href={menu.href}
                 className={`flex text-sm justify-start items-center p-2 my-1 rounded-lg dark:text-white  ${
                   segment === menu.segment &&
-                  "group bg-[#800080] text-black font-bold"
-                }  "pl-4 group-hover/side:md:pl-8 hover:bg-[#800080]  hover:text-white hover:font-extrabold text-center"
+                  "group bg-[#54f434] text-black font-bold"
+                }  "pl-4 group-hover/side:md:pl-8 hover:bg-[#54f434]  hover:text-white hover:font-extrabold text-center"
               dark:hover:bg-gray-700 `}
               >
                 <div className=" group:text-gray-900 text-white text-lg group-hover/side:md:text-md">
@@ -166,7 +157,7 @@ export default function DashboardLayout({ children }: any) {
             ))}
           </aside>
 
-          <div className=" flex  items-start  w-full md:w-[95%] group-hover/side:md:w-[85%] px-3 overflow-y-auto   mt-12 text-[#2E052E] bg-white">
+          <div className=" flex  items-start  w-full md:w-[95%] group-hover/side:md:w-[85%] px-3 overflow-y-auto pt-20 text-gray-800 bg-white">
             {children}
           </div>
           {/* <Footer /> */}

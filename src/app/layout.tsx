@@ -1,4 +1,4 @@
-import { Providers } from "./providers";
+import { Providers } from "../components/providers";
 import { Toaster } from "@/components/ui/toaster";
 
 // import { inter, roboto, manrope } from "./fonts";
@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Synergy",
-  description: "MOst Popular peer to peer Leading Community",
+  description: "Most Popular peer to peer Leading Community",
 };
 
 export default function RootLayout({
@@ -16,8 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        {/* className={manrope.className}> */}
+      <body className="bg-white">
         <Providers>
           <Toaster />
           {children}

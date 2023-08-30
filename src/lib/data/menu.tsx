@@ -1,44 +1,43 @@
-import { MdSpaceDashboard, MdLocalLibrary } from "react-icons/md";
+import { MdSpaceDashboard, MdLocalLibrary, MdAccountBox, MdSavings, MdAnnouncement } from "react-icons/md";
 import { ImBooks } from "react-icons/im";
-import { FaQuestionCircle, FaAward } from "react-icons/fa";
+import { FaQuestionCircle, FaAward, FaMoneyBill, FaMoneyBillWaveAlt } from "react-icons/fa";
+import { Settings, Users, Users2 } from "lucide-react";
 
 export const SideBarMenu = [
   {
     title: "My Account",
     href: "/dashboard",
-    icon: <MdSpaceDashboard />,
+    icon: <MdAccountBox />,
     segment: null,
   },
   {
     title: "Savings",
     href: "/dashboard/savings",
-    icon: <ImBooks />,
+    icon: <MdSavings />,
     segment: "savings",
   },
 
   {
     title: "Loans",
     href: "/dashboard/loans",
-    icon: <MdLocalLibrary />,
+    icon: <FaMoneyBill />,
     segment: "loans",
   },
 
   {
     title: "Investments",
     href: "/dashboard/investments",
-    icon: <FaQuestionCircle />,
+    icon: <FaMoneyBillWaveAlt />,
     segment: "investments",
   },
 
   {
     title: "Settings",
     href: "/settings",
-    icon: <FaAward />,
+    icon: <Settings />,
     segment: "settings",
   },
 ];
-
-
 
 export const AdminSideBarMenu = [
   {
@@ -48,49 +47,84 @@ export const AdminSideBarMenu = [
     segment: null,
   },
   {
-    title: "Users",
-    href: "/admin/users",
-    icon: <ImBooks />,
-    segment: "users",
+    title: "Customers",
+    href: "/admin/customers",
+    icon: <Users2 />,
+    segment: "customers",
   },
   {
     title: "Accounts",
     href: "/admin/accounts",
-    icon: <ImBooks />,
+    icon: <MdAccountBox />,
     segment: "accounts",
   },
   {
     title: "Savings",
     href: "/admin/savings",
-    icon: <ImBooks />,
+    icon: <MdSavings />,
     segment: "savings",
   },
 
   {
     title: "Loans",
     href: "/admin/loans",
-    icon: <MdLocalLibrary />,
+    icon: <FaMoneyBill />,
     segment: "loans",
   },
 
   {
     title: "Investments",
     href: "/admin/investments",
-    icon: <FaQuestionCircle />,
+    icon: <FaMoneyBillWaveAlt />,
     segment: "investments",
   },
   {
     title: "Announcements",
     href: "/admin/announcements",
-    icon: <FaQuestionCircle />,
+    icon: <MdAnnouncement />,
     segment: "announcements",
   },
 
   {
     title: "Settings",
     href: "/settings",
-    icon: <FaAward />,
+    icon: <Settings />,
     segment: "settings",
   },
 ];
 
+export const AdminTopBarMenu = [
+  {
+    title: "Overview",
+    href: "/admin",
+    icon: <MdSpaceDashboard />,
+    segment: null,
+  },
+  {
+    title: "Customers",
+    href: "/admin/customers",
+    icon: <Users />,
+    segment: "customers",
+  },
+  {
+    title: "Accounts",
+    href: "/admin/accounts",
+    icon: <MdAccountBox />,
+    segment: "accounts",
+  },
+
+  {
+    title: "Announcements",
+    href: "/admin/announcements",
+    icon: <MdAnnouncement />,
+    segment: "announcements",
+  },
+
+  {
+    title: "Settings",
+    href: "/settings",
+    icon: <Settings />,
+    segment: "settings",
+  },
+
+];

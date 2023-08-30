@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useEffect, useState } from "react";
+import React, {  useState } from "react";
 import Image from "next/image";
 import FullLogoSvg from "@/app/assets/logo/svg/Color_logo_nobackground.svg";
 import Link from "next/link";
@@ -8,7 +8,7 @@ import { redirect, useRouter } from "next/navigation";
 // import Avatar from "@/app/assets/img/avatar.png";
 import { RxCaretDown } from "react-icons/rx";
 // import Announcement from "./alert";
-import Loading from "../../../app/loading";
+import Loading from "../../app/loading";
 import { SettingsMenu } from "@/lib/data/settings";
 // import { on } from "nodemailer/lib/xoauth2";
 import { HiMenuAlt2 } from "react-icons/hi";
@@ -17,6 +17,7 @@ import { HiMenuAlt2 } from "react-icons/hi";
 import { Button } from "@/components/ui/button";
 import { Client, Account } from "appwrite";
 import { useToast } from "@/components/ui/use-toast";
+import { UserNav } from "./user-nav";
 
 interface HeaderProps {
   setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
@@ -120,7 +121,8 @@ export default function Header({
           >
             Go to User Dashboard
           </Link>
-          <Button
+          <UserNav username={username} email={email}/>
+          {/* <Button
             onClick={() => setOpen(!open)}
             type="button"
             className="flex text-sm  items-center bg-gray-50 hover:bg-[#54f434]/20 justify-center gap-2 pr-2 mx-5 hover:font-bold hover:ring-2 rounded-full md:focus:ring-2 md:focus:ring-[#29651d] dark:focus:ring-gray-600"
@@ -170,7 +172,7 @@ export default function Header({
                 ))}
               </div>
             </div>
-          )}
+          )} */}
           {/* </div> */}
         </div>
         {/* </div> */}

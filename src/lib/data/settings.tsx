@@ -3,16 +3,16 @@ export const SettingsMenu = [
     title: "Settings",
     href: "/settings",
   },
-  // {
-  //   title: "Billing",
-  //   href: "/dashboard/billing",
-  // },
+  {
+    title: "Notifications",
+    href: "/notifications",
+  },
   // {
   //   title: "VPN Setup",
   //   href: "#",
   // },
-  {
-    title: "Sign-Out",
-    href: "/",
-  },
+  // {
+  //   title: "Sign-Out",
+  //   href: "/",
+  // },
 ];

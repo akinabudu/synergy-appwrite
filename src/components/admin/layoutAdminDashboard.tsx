@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { redirect, useRouter, useSearchParams } from "next/navigation";
-import Header from "./header/header";
+import Header from "./header";
 import { Client, Account } from "appwrite";
 import Link from "next/link";
 import Image from "next/image";

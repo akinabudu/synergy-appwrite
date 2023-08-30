@@ -69,10 +69,10 @@ export const SideBarMenu = [
     // },
   
     {
-      title: "Profile",
-      href: "/profile",
+      title: "Settings",
+      href: "/settings",
       icon: <FaAward />,
-      segment: "profile",
+      segment: "settings",
     },
     // {
     //   title: "My Badges",

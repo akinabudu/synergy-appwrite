@@ -1,5 +1,5 @@
 
-import Spinner from "./assets/svg/spinner";
+import Spinner from "../../public/assets/svg/spinner";
 
 export default function Loading() {
   return (

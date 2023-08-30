@@ -1,7 +1,7 @@
 export const SettingsMenu = [
   {
-    title: "Profile",
-    href: "/profile",
+    title: "Settings",
+    href: "/settings",
   },
   // {
   //   title: "Billing",

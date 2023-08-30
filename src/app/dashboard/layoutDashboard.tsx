@@ -10,7 +10,7 @@ import Header from "./header";
 // import { CreateJWT } from "@/app/appwrite/createJWT";
 // import Loading from "../loading";
 // import { Client, Account } from "appwrite";
-import { Sidebar, Sidebar2 } from "./sidebar";
+// import { Sidebar, Sidebar2 } from "./sidebar";
 // import { ConfirmMagicUrl } from "../appwrite/login";
 import { Client, Account } from "appwrite";
 import Link from "next/link";

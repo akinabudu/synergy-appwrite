@@ -7,7 +7,7 @@ import {
   const data=[
     {
     trxId:"234jh234",
-    avtrImage:"/avatars/01.png",
+    avtrImage:"/avatar.png",
     avtrF:"AA",
     trxDesc:"Daily Contribution",
     trxtype:"credit",
@@ -15,7 +15,7 @@ import {
   },
   {
     trxId:"5667456ugj",
-    avtrImage:"/avatars/01.png",
+    avtrImage:"/avatar.png",
     avtrF:"Bd",
     trxDesc:"Dev Levy",
     trxtype:"debit",
@@ -23,7 +23,7 @@ import {
   },
   {
     trxId:"sdfg45462",
-    avtrImage:"/avatars/01.png",
+    avtrImage:"/avatar.png",
     avtrF:"BB",
     trxDesc:"Daily Contribution",
     trxtype:"credit",

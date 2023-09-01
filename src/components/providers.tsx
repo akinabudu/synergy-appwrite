@@ -1,39 +1,38 @@
 "use client";
 import { useEffect, useState } from "react";
-// import { UserDetailsContext } from "../lib/Context";
 import AOS from "aos";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { useAtom } from "jotai";
 import { layoutSegment } from "@/lib/Context";
-
-// type UserDetails = {
-//   studentExamId?: string;
-//   quizPassed?: boolean;
-//   labFinished?: boolean;
-//   startLabTime_Mili?: number;
-//   labDuration?: number;
-//   email?: string;
-// };
+import NextTopLoader from "nextjs-toploader";
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
-  // const [userDetails, setUserDetails] = useState<UserDetails[]>([]);
   const segment = useSelectedLayoutSegment();
   const [userSegment, setUserSegment] = useAtom(layoutSegment);
-setUserSegment(segment)
+  setUserSegment(segment)
 
-  useEffect(()=>{
+  // console.log(segment)
+
+  useEffect(() => {
     AOS.init({
       duration: 600,
     });
-  },[])
-    
+  }, []);
 
   return (
     <>
-    
-        {/* <UserDetailsContext.Provider value={{ userDetails, setUserDetails }}> */}
-          {children}
-        {/* </UserDetailsContext.Provider> */}
+      <NextTopLoader 
+      color="#800080"
+      initialPosition={0.08}
+      crawlSpeed={200}
+      height={3}
+      crawl={true}
+      showSpinner={true}
+      easing="ease"
+      speed={200}
+      shadow="0 0 10px #2299DD,0 0 5px #2299DD"
+      />
+      {children}
     </>
   );
 };

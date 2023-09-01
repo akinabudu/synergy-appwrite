@@ -61,7 +61,7 @@ import { Account, Client } from "appwrite"
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="relative h-8 w-8 rounded-full">
             <Avatar className="h-8 w-8">
-              <AvatarImage src="/avatars/01.png" alt={username} />
+              <AvatarImage src="/avatar.png" alt={username} />
               <AvatarFallback className="text-gray-800 hover:font-bold">{username}</AvatarFallback>
             </Avatar>
           </Button>

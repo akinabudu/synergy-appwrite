@@ -1,7 +1,5 @@
-// import {createContext} from 'react'
 import { atom } from "jotai";
 
-// export const UserDetailsContext = createContext<any>("")
 export const userJwt = atom<string>("");
 export const userData = atom<any>(null); 
 export const userSecretAtom = atom<string>("");

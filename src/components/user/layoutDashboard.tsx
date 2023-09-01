@@ -22,10 +22,11 @@ export default function DashboardLayout({ children }: any) {
   const userId = searchParams.get("userId");
   const client = new Client();
   const account = new Account(client);
-  const segment = useSelectedLayoutSegment();
+  let segment = useSelectedLayoutSegment();
   const [userSegment, setUserSegment] = useAtom(layoutSegment);
-
-// console.log(segment)
+  if(userSegment !=="dashboard"){
+segment =userSegment
+  }
   client
     .setEndpoint(`${process.env.NEXT_PUBLIC_APPWRITE_URL}`) // Your API Endpoint
     .setProject(`${process.env.NEXT_PUBLIC_APPWRITE_ID}`); // Your project ID
@@ -109,28 +110,28 @@ export default function DashboardLayout({ children }: any) {
             <Link
               href="/dashboard"
               className="group-hover/side:md:flex md:hidden w-full px-5 md:mr-24 mb-3"
-            >
-              <Image
+            > Synergy
+              {/* <Image
                 src={"vercel.svg"}
                 width={50}
                 height={30}
                 className="  mr-3 w-50 h-30"
                 alt="imbus-AI Logo"
                 priority
-              />
+              /> */}
             </Link>
             <Link
               href="/dashboard"
               className="group-hover/side:md:hidden md:flex w-full px-1  mb-3"
-            >
-              <Image
+            >S
+              {/* <Image
                 src={"next.svg"}
                 className="  mr-3 w-50 h-30"
                 width={50}
                 height={30}
                 alt="imbus-AI Logo"
                 priority
-              />
+              /> */}
             </Link>
             <hr className="mb-8" />
             {SideBarMenu.map((menu, index) => (
@@ -138,7 +139,7 @@ export default function DashboardLayout({ children }: any) {
                 key={index}
                 href={menu.href}
                 className={`flex text-sm justify-start items-center p-2 my-1 rounded-lg dark:text-white  ${
-                  segment === menu.segment || userSegment === menu.segment &&
+                 segment === menu.segment &&
                   "group bg-[#800080] text-black font-bold"
                 }  "pl-4 group-hover/side:md:pl-8 hover:bg-[#800080]  hover:text-white hover:font-extrabold text-center"
               dark:hover:bg-gray-700 `}

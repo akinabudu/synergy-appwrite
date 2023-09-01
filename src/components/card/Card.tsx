@@ -1,19 +1,42 @@
+"use client";
 import React from "react";
-import {FiMoreVertical} from 'react-icons/fi'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
-interface CardProps{
-    title:string
-    amount: string|number
-    description:string
-    color:string
+interface CardProps {
+  title: string;
+  amount: string;
+  description: string;
+  symbol?: string;
 }
 
-export const Card = ({title='Savings',amount="-",description='Balance Available',color='text-black'}:CardProps) => {
+export const AmountCard = ({
+  title = "Savings",
+  amount = "-",
+  description = "Balance Available",
+  symbol = "₦",
+}: CardProps) => {
   return (
-    <div className=" flex flex-col bg-white w-full md:w-2/6 h-fit my-2 rounded-lg shadow-md p-5 gap-2">
-      <div className='flex justify-between'><span>{title}</span><FiMoreVertical/></div>
-      <div className="text-3xl font-bold ">₦ <span className={color}>{amount}</span></div>
-      <div className=" text-sm text-gray-500">{description}</div>
-    </div>
+    <Card className="w-full md:max-w-1/6 h-fit">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+        <CardTitle className="text-sm font-medium">{title}</CardTitle>
+        {symbol}
+      </CardHeader>
+      <CardContent>
+        <div
+          className={`text-2xl font-bold ${
+            parseInt(amount) >= 0 ? "text-green-500" : "text-red-500"
+          }`}
+        >
+          {amount}
+        </div>
+        <p className="text-xs text-muted-foreground">{description}</p>
+      </CardContent>
+    </Card>
   );
 };

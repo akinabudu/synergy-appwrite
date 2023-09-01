@@ -70,22 +70,7 @@ export default function Header({
     );
   };
 
-  // async function getData() {
-  //   const allAvatars = await GetAllAvatars(localStorage.getItem("jwt"));
-  //   if (!avatar) {
-  //     arrId = Math.floor(Math.random() * (allAvatars.length - 1));
-  //     const body = { profileAvatarId: allAvatars[arrId].id };
-  //     await UpdateMe(localStorage.getItem("jwt"), body, id);
-  //   }
-
-  //   const data = await GetAvatar(localStorage.getItem("jwt"), avatar);
-  //   // console.log(jwtString,arrId,avatar, allAvatars,id,data);
-  //   setAvatarUrl(data);
-  // }
-
-  // useEffect(() => {
-  //   getData();
-  // }, [arrId]);
+  
 
   function handleHeaderClick(item: string) {
     setIsLoading(true);
@@ -122,60 +107,8 @@ export default function Header({
             Go to User Dashboard
           </Link>
           <UserNav username={username} email={email}/>
-          {/* <Button
-            onClick={() => setOpen(!open)}
-            type="button"
-            className="flex text-sm  items-center bg-gray-50 hover:bg-[#54f434]/20 justify-center gap-2 pr-2 mx-5 hover:font-bold hover:ring-2 rounded-full md:focus:ring-2 md:focus:ring-[#29651d] dark:focus:ring-gray-600"
-            aria-expanded="false"
-            data-dropdown-toggle="dropdown-user"
-          >
-            <Image
-              className="w-8 h-8 object-cover rounded-full"
-              src={
-                avatarUrl
-                  ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${avatarUrl.url}`
-                  : "/avatar.png"
-              }
-              alt="user photo"
-              width={18}
-              height={18}
-            />
-            <div className="hidden md:flex md:items-center ">
-              <div className="text-sm text-[#29651d] ">{username}</div>
-              <RxCaretDown color="gray" size={24} />
-            </div>
-          </Button>
-          {open && (
-            <div
-              className="z-50 w-2/3 md:w-1/6 absolute top-14 right-30 md:right-10 mt-2 text-base list-none bg-gray-50 hover:text-gray-100 text-gray-100  divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-              id="dropdown-user"
-            >
-              <div
-                className="px-6 py-1 font-bold bg-[#29651d] text-lg text-black space-y-1"
-                role="none"
-              >
-                <p className="text-sm text-white" role="none">
-                  {email}
-                </p>
-              </div>
-              <div>
-                {SettingsMenu.map((item, index) => (
-                  <Link
-                    key={index}
-                    onClick={() => handleHeaderClick(item.title)}
-                    href={item.href}
-                    className={`block px-4 py-2 text-sm text-black hover:text-white hover:bg-[#29651d] dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white shadow-gray-700`}
-                    role="menuitem"
-                  >
-                    {item.title}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )} */}
-          {/* </div> */}
+         
         </div>
-        {/* </div> */}
       </nav>
     </>
   );

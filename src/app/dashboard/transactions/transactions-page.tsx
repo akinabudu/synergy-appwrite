@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 
-export default function SavingPage() {
+export default function TransactionsPage() {
   return (
     <div>Savings</div>
   )

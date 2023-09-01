@@ -1,27 +1,26 @@
-import { MdSpaceDashboard, MdLocalLibrary, MdAccountBox, MdSavings, MdAnnouncement } from "react-icons/md";
-import { ImBooks } from "react-icons/im";
-import { FaQuestionCircle, FaAward, FaMoneyBill, FaMoneyBillWaveAlt } from "react-icons/fa";
-import { Settings, Users, Users2 } from "lucide-react";
+import {
+  MdSpaceDashboard,
+  MdLocalLibrary,
+  MdAccountBox,
+  MdSavings,
+  MdAnnouncement,
+} from "react-icons/md";
+import { FaMoneyBill, FaMoneyBillWaveAlt } from "react-icons/fa";
+import { HelpCircle, Settings, Users, Users2 } from "lucide-react";
 
-export const SideBarMenu = [
+export const UserTopBarMenu = [
   {
-    title: "My Account",
-    href: "/dashboard",
-    icon: <MdAccountBox />,
-    segment: null,
-  },
-  {
-    title: "Savings",
-    href: "/dashboard/savings",
+    title: "Transactions",
+    href: "/dashboard/transactions",
     icon: <MdSavings />,
-    segment: "savings",
+    segment: "transactions",
   },
 
   {
-    title: "Loans",
-    href: "/dashboard/loans",
-    icon: <FaMoneyBill />,
-    segment: "loans",
+    title: "Referrals",
+    href: "/dashboard/referrals",
+    icon: <Users2 />,
+    segment: "referrals",
   },
 
   {
@@ -39,6 +38,48 @@ export const SideBarMenu = [
   },
 ];
 
+export const SideBarMenu = [
+  {
+    title: "My Account",
+    href: "/dashboard",
+    icon: <MdAccountBox />,
+    segment: null,
+  },
+  {
+    title: "Transactions",
+    href: "/dashboard/transactions",
+    icon: <MdSavings />,
+    segment: "transactions",
+  },
+
+  {
+    title: "Referrals",
+    href: "/dashboard/referrals",
+    icon: <Users2 />,
+    segment: "referrals",
+  },
+
+  {
+    title: "Investments",
+    href: "/dashboard/investments",
+    icon: <FaMoneyBillWaveAlt />,
+    segment: "investments",
+  },
+
+  {
+    title: "Settings",
+    href: "/settings",
+    icon: <Settings />,
+    segment: "settings",
+  },
+  {
+    title: "Help",
+    href: "/help",
+    icon: <HelpCircle />,
+    segment: "help",
+  },
+];
+
 export const AdminSideBarMenu = [
   {
     title: "Overview",
@@ -47,10 +88,10 @@ export const AdminSideBarMenu = [
     segment: null,
   },
   {
-    title: "Customers",
-    href: "/admin/customers",
+    title: "Transactions",
+    href: "/admin/transactions",
     icon: <Users2 />,
-    segment: "customers",
+    segment: "transactions",
   },
   {
     title: "Accounts",
@@ -64,14 +105,6 @@ export const AdminSideBarMenu = [
     icon: <MdSavings />,
     segment: "savings",
   },
-
-  {
-    title: "Loans",
-    href: "/admin/loans",
-    icon: <FaMoneyBill />,
-    segment: "loans",
-  },
-
   {
     title: "Investments",
     href: "/admin/investments",
@@ -94,12 +127,7 @@ export const AdminSideBarMenu = [
 ];
 
 export const AdminTopBarMenu = [
-  {
-    title: "Overview",
-    href: "/admin",
-    icon: <MdSpaceDashboard />,
-    segment: null,
-  },
+  
   {
     title: "Customers",
     href: "/admin/customers",
@@ -126,5 +154,4 @@ export const AdminTopBarMenu = [
     icon: <Settings />,
     segment: "settings",
   },
-
 ];

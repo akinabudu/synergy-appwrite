@@ -18,7 +18,7 @@ import {
 import { CalendarDateRangePicker } from "@/components/admin/date-range-picker"
 import { MainNav } from "@/components/admin/main-nav"
 import { Overview } from "@/components/admin/overview"
-import { RecentSales } from "@/components/admin/recent-sales"
+import { RecentTransactions } from "@/components/admin/recent-transactions"
 import { Search } from "@/components/admin/search"
 import TeamSwitcher from "@/components/admin/team-switcher"
 import { UserNav } from "@/components/admin/user-nav"
@@ -85,20 +85,9 @@ export default function DashboardPage() {
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
-                      Total Revenue
+                      Total Balance
                     </CardTitle>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="h-4 w-4 text-muted-foreground"
-                    >
-                      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                    </svg>
+                    ₦
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">$45,231.89</div>
@@ -110,7 +99,7 @@ export default function DashboardPage() {
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
-                      Subscriptions
+                     Customers
                     </CardTitle>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +125,7 @@ export default function DashboardPage() {
                 </Card>
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Sales</CardTitle>
+                    <CardTitle className="text-sm font-medium">Transactions</CardTitle>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -195,13 +184,13 @@ export default function DashboardPage() {
                 </Card>
                 <Card className="col-span-3">
                   <CardHeader>
-                    <CardTitle>Recent Sales</CardTitle>
+                    <CardTitle>Recent Transactions</CardTitle>
                     <CardDescription>
-                      You made 265 sales this month.
+                      {/* You made 265 sales this month. */}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <RecentSales />
+                    <RecentTransactions />
                   </CardContent>
                 </Card>
               </div>

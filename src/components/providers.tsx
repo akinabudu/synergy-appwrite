@@ -2,6 +2,9 @@
 import { useEffect, useState } from "react";
 // import { UserDetailsContext } from "../lib/Context";
 import AOS from "aos";
+import { useSelectedLayoutSegment } from "next/navigation";
+import { useAtom } from "jotai";
+import { layoutSegment } from "@/lib/Context";
 
 // type UserDetails = {
 //   studentExamId?: string;
@@ -14,6 +17,9 @@ import AOS from "aos";
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   // const [userDetails, setUserDetails] = useState<UserDetails[]>([]);
+  const segment = useSelectedLayoutSegment();
+  const [userSegment, setUserSegment] = useAtom(layoutSegment);
+setUserSegment(segment)
 
   useEffect(()=>{
     AOS.init({
@@ -24,6 +30,7 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
+    
         {/* <UserDetailsContext.Provider value={{ userDetails, setUserDetails }}> */}
           {children}
         {/* </UserDetailsContext.Provider> */}

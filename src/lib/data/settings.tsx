@@ -7,10 +7,10 @@ export const SettingsMenu = [
     title: "Notifications",
     href: "/notifications",
   },
-  // {
-  //   title: "VPN Setup",
-  //   href: "#",
-  // },
+  {
+    title: "Help/Support",
+    href: "/help",
+  },
   // {
   //   title: "Sign-Out",
   //   href: "/",

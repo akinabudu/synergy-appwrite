@@ -6,7 +6,7 @@ import { Client, Account } from "appwrite";
 import Link from "next/link";
 import Image from "next/image";
 import { useSelectedLayoutSegment } from "next/navigation";
-import { userData } from "@/lib/Context";
+import { layoutSegment, userData } from "@/lib/Context";
 import { useAtom } from "jotai";
 import { SideBarMenu } from "@/lib/data/menu";
 
@@ -23,7 +23,9 @@ export default function DashboardLayout({ children }: any) {
   const client = new Client();
   const account = new Account(client);
   const segment = useSelectedLayoutSegment();
+  const [userSegment, setUserSegment] = useAtom(layoutSegment);
 
+// console.log(segment)
   client
     .setEndpoint(`${process.env.NEXT_PUBLIC_APPWRITE_URL}`) // Your API Endpoint
     .setProject(`${process.env.NEXT_PUBLIC_APPWRITE_ID}`); // Your project ID
@@ -101,7 +103,7 @@ export default function DashboardLayout({ children }: any) {
             id="logo-sidebar"
             className={`${
               openMenu ? "absolute z-50 left-0 top-12 w-[50%] " : "hidden"
-            } md:top-20 md:left-0 md:flex md:flex-col group/side hover:md:w-[15%] transition duration-700 ease-in-out md:w-[5%] hover:md:left-0  md:h-screen  pb-5 pt-0 md:pt-5 shadow-sm shadow-[#2E052E] z-50 px-2 text-white bg-[#2E052E] `}
+            } md:top-20 md:left-0 md:flex md:flex-col group/side hover:md:w-[15%] hover:transition duration-1000 delay-100 fade-in-80 fade-out-80 md:w-[5%] hover:md:left-0  md:h-screen  pb-5 pt-0 md:pt-5 shadow-sm shadow-[#2E052E] z-50 px-2 text-white bg-[#2E052E] `}
             aria-label="Sidebar"
           >
             <Link
@@ -136,7 +138,7 @@ export default function DashboardLayout({ children }: any) {
                 key={index}
                 href={menu.href}
                 className={`flex text-sm justify-start items-center p-2 my-1 rounded-lg dark:text-white  ${
-                  segment === menu.segment &&
+                  segment === menu.segment || userSegment === menu.segment &&
                   "group bg-[#800080] text-black font-bold"
                 }  "pl-4 group-hover/side:md:pl-8 hover:bg-[#800080]  hover:text-white hover:font-extrabold text-center"
               dark:hover:bg-gray-700 `}
@@ -151,7 +153,7 @@ export default function DashboardLayout({ children }: any) {
             ))}
           </aside>
 
-          <div className=" flex  items-start  w-full md:w-[95%] group-hover/side:md:w-[85%] px-3 overflow-y-auto   mt-12 text-[#2E052E] bg-white">
+          <div className=" flex  items-start  w-full md:w-[95%] group-hover/side:md:w-[85%] px-3 overflow-y-auto   pt-20 text-[#2E052E] bg-white">
             {children}
           </div>
           {/* <Footer /> */}

@@ -1,6 +1,7 @@
 "use client"
 
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts"
+import { Card } from "../ui/card";
 
 const data = [
   {
@@ -53,6 +54,42 @@ const data = [
   },
 ]
 
+// const getIntroOfPage = (label:string) => {
+//   if (label === 'Jan') {
+//     return 
+//   }
+//   if (label === 'Feb') {
+//     return 
+//   }
+//   if (label === 'Mar') {
+//     return "Page C is about women's bag";
+//   }
+//   if (label === 'Apr') {
+//     return 'Page D is about household goods';
+//   }
+//   if (label === 'May') {
+//     return 'Page E is about food';
+//   }
+//   if (label === 'Page F') {
+//     return 'Page F is about baby food';
+//   }
+//   return '';
+// };
+
+const CustomTooltip = ({ active, payload, label }:any) => {
+  if (active && payload && payload.length) {
+    return (
+      <Card className="p-1">
+        <p className="label">{`${label} : ₦ ${payload[0].value}`}</p>
+        {/* <p className="intro">{getIntroOfPage(label)}</p> */}
+        {/* <p className="desc">Anything you want can be displayed here.</p> */}
+      </Card>
+    );
+  }
+
+  return null;
+};
+
 export function Overview() {
   return (
     <ResponsiveContainer width="100%" height={350}>
@@ -71,6 +108,7 @@ export function Overview() {
           axisLine={false}
           tickFormatter={(value:any) => `$${value}`}
         />
+        <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="total" fill="#adfa1d" radius={[4, 4, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>

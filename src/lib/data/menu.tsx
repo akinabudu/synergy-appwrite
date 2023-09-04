@@ -99,12 +99,7 @@ export const AdminSideBarMenu = [
     icon: <MdAccountBox />,
     segment: "accounts",
   },
-  {
-    title: "Savings",
-    href: "/admin/savings",
-    icon: <MdSavings />,
-    segment: "savings",
-  },
+ 
   {
     title: "Investments",
     href: "/admin/investments",
@@ -129,10 +124,10 @@ export const AdminSideBarMenu = [
 export const AdminTopBarMenu = [
   
   {
-    title: "Customers",
-    href: "/admin/customers",
+    title: "Transactions",
+    href: "/admin/transactions",
     icon: <Users />,
-    segment: "customers",
+    segment: "transactions",
   },
   {
     title: "Accounts",

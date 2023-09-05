@@ -80,20 +80,20 @@ export default function Header({
   return (
     <>
       <nav className="fixed flex items-center justify-between h-[10vh] py-2  lg:pl-3 top-0 right-0 mb-5 w-full  bg-white shadow-lg  shadow-gray-dark dark:bg-gray-800 dark:border-gray-700">
-        <div className="flex items-center justify-start">
+        <div className="flex items-center justify-start md:hidden ">
           <Button
             onClick={() => setOpenMenu(!openMenu)}
             data-drawer-target="logo-sidebar"
             data-drawer-toggle="logo-sidebar"
             aria-controls="logo-sidebar"
             type="button"
-            className="inline-flex items-center p-2 text-sm text-[#29651d] rounded-lg md:hidden bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#29651d] dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center p-2 text-sm text-[#29651d] rounded-lg  bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#29651d] dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           >
             <span className="sr-only">Open sidebar</span>
             <HiMenuAlt2 />
           </Button>
         </div>
-        <div className=" md:py-1 ml-5 px-1 md:px-8   text-[#29651d] md:text-lg text-sm ">
+        <div className=" md:py-1 ml-16 text-[#29651d] md:text-lg text-sm ">
           Admin Dashboard
         </div>
         <div className="w-[30%]">{/* <Search/> */}</div>

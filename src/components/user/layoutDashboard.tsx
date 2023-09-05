@@ -9,6 +9,7 @@ import { useSelectedLayoutSegment } from "next/navigation";
 import { layoutSegment, userData } from "@/lib/Context";
 import { useAtom } from "jotai";
 import { SideBarMenu } from "@/lib/data/menu";
+import { GetToken } from "@/lib/kuda/GetToken";
 
 export default function DashboardLayout({ children }: any) {
   const [loading, setLoading] = useState<boolean>(true);
@@ -32,6 +33,8 @@ segment =userSegment
     .setProject(`${process.env.NEXT_PUBLIC_APPWRITE_ID}`); // Your project ID
 
   async function getConfirmation() {
+    const token=await GetToken()
+    localStorage.setItem("token", token);
     if (!userId && !secret) {
       const getUserSession = account.getSession("current");
 

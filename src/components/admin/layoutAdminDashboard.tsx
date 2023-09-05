@@ -9,6 +9,8 @@ import { useSelectedLayoutSegment } from "next/navigation";
 import { userData } from "@/lib/Context";
 import { useAtom } from "jotai";
 import { AdminSideBarMenu } from "@/lib/data/menu";
+import { GetToken } from "@/lib/kuda/GetToken";
+import axios from "axios";
 
 export default function AdminDashboardLayout({ children }: any) {
   const [loading, setLoading] = useState<boolean>(true);
@@ -23,12 +25,21 @@ export default function AdminDashboardLayout({ children }: any) {
   const client = new Client();
   const account = new Account(client);
   const segment = useSelectedLayoutSegment();
-
+  const [token,setToken] = useState<string>("token");
+ 
   client
     .setEndpoint(`${process.env.NEXT_PUBLIC_APPWRITE_URL}`) // Your API Endpoint
     .setProject(`${process.env.NEXT_PUBLIC_APPWRITE_ID}`); // Your project ID
 
   async function getConfirmation() {
+    await axios
+    .get(
+      `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/api/v1/gettoken`
+    )
+    .then((response) => {
+      console.log(response);
+      // localStorage.setItem("token", response.data)
+    });   
     if (!userId && !secret) {
       const getUserSession = account.getSession("current");
 
@@ -86,11 +97,11 @@ export default function AdminDashboardLayout({ children }: any) {
     <>
       {userSession && (
         <div
-          onClick={() => {
-            openMenu && setOpenMenu(false);
-            open && setOpen(false);
-          }}
-          className=" w-full h-screen flex justify-between "
+        onClick={() => {
+          openMenu && setOpenMenu(false);
+          open && setOpen(false);
+        }}
+        className=" w-full h-screen flex justify-between "
         >
           <Header
             setOpenMenu={setOpenMenu}

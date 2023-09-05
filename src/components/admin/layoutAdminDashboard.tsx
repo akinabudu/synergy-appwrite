@@ -37,8 +37,8 @@ export default function AdminDashboardLayout({ children }: any) {
       `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/api/v1/gettoken`
     )
     .then((response) => {
-      console.log(response);
-      // localStorage.setItem("token", response.data)
+      // console.log(response);
+      localStorage.setItem("token", response.data)
     });   
     if (!userId && !secret) {
       const getUserSession = account.getSession("current");

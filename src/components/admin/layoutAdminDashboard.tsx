@@ -6,7 +6,7 @@ import { Client, Account } from "appwrite";
 import Link from "next/link";
 import Image from "next/image";
 import { useSelectedLayoutSegment } from "next/navigation";
-import { userData } from "@/lib/Context";
+import { userData, virtualAccounts } from "@/lib/Context";
 import { useAtom } from "jotai";
 import { AdminSideBarMenu } from "@/lib/data/menu";
 import { GetToken } from "@/lib/kuda/GetToken";
@@ -25,7 +25,8 @@ export default function AdminDashboardLayout({ children }: any) {
   const client = new Client();
   const account = new Account(client);
   const segment = useSelectedLayoutSegment();
-  const [token,setToken] = useState<string>("token");
+  const [token,setToken] = useState<string>();
+  const [getVirtualAccounts,setGetVirtualAccounts] = useAtom(virtualAccounts);
  
   client
     .setEndpoint(`${process.env.NEXT_PUBLIC_APPWRITE_URL}`) // Your API Endpoint
@@ -37,9 +38,19 @@ export default function AdminDashboardLayout({ children }: any) {
       `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/api/v1/gettoken`
     )
     .then((response) => {
-      // console.log(response);
       localStorage.setItem("token", response.data)
     });   
+
+  await axios
+  .get(
+    `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/api/v1/virtualaccounts?token=${localStorage.getItem("token")}`
+  )
+  .then((response) => {
+    setGetVirtualAccounts(response.data.data);
+    console.log(response.data);
+  });
+// }
+
     if (!userId && !secret) {
       const getUserSession = account.getSession("current");
 

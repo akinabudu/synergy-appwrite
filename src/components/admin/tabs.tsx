@@ -12,10 +12,14 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Overview } from "./overview";
 import { RecentTransactions } from "./recent-transactions";
+import { virtualAccounts } from "@/lib/Context";
+import { useAtom } from "jotai";
 // import { AdminBalance } from "@/lib/kuda/AdminBalance";
 
 export default function AdminTabs() {
   const [accBalance, setAccBalance] = useState<any>();
+  const [getVirtualAccounts,setGetVirtualAccounts] = useAtom(virtualAccounts);
+
   async function GetData() {
     const token = localStorage.getItem("token");
 
@@ -72,7 +76,7 @@ export default function AdminTabs() {
             </Card>
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Customers</CardTitle>
+                <CardTitle className="text-sm font-medium">No of Accounts</CardTitle>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -89,7 +93,7 @@ export default function AdminTabs() {
                 </svg>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">+2350</div>
+                <div className="text-2xl font-bold">{getVirtualAccounts.totalCount}</div>
                 <p className="text-xs text-muted-foreground">
                   +180.1% from last month
                 </p>

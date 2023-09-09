@@ -12,20 +12,22 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Overview } from "./overview";
 import { RecentTransactions } from "./recent-transactions";
-import { virtualAccounts } from "@/lib/Context";
+import { adminTrans, virtualAccounts } from "@/lib/Context";
 import { useAtom } from "jotai";
 // import { AdminBalance } from "@/lib/kuda/AdminBalance";
 
 export default function AdminTabs() {
   const [accBalance, setAccBalance] = useState<any>();
   const [getVirtualAccounts,setGetVirtualAccounts] = useAtom(virtualAccounts);
+  const [getAdminTrans, setGetAdminTrans] = useAtom(adminTrans);
+
 
   async function GetData() {
     const token = localStorage.getItem("token");
 
     await axios
       .get(
-        `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/api/v1/adminbalance?token=${token}`
+        `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/api/v1/admin/adminbalance?token=${token}`
       )
       .then((response) => {
         setAccBalance(response.data.data);
@@ -119,7 +121,7 @@ export default function AdminTabs() {
                 </svg>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">+12,234</div>
+                <div className="text-2xl font-bold">{getAdminTrans.postingsHistory.length}</div>
                 <p className="text-xs text-muted-foreground">
                   +19% from last month
                 </p>

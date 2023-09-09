@@ -6,7 +6,7 @@ import { Client, Account } from "appwrite";
 import Link from "next/link";
 import Image from "next/image";
 import { useSelectedLayoutSegment } from "next/navigation";
-import { userData, virtualAccounts } from "@/lib/Context";
+import { adminTrans, userData, virtualAccounts } from "@/lib/Context";
 import { useAtom } from "jotai";
 import { AdminSideBarMenu } from "@/lib/data/menu";
 import { GetToken } from "@/lib/kuda/GetToken";
@@ -25,44 +25,52 @@ export default function AdminDashboardLayout({ children }: any) {
   const client = new Client();
   const account = new Account(client);
   const segment = useSelectedLayoutSegment();
-  const [token,setToken] = useState<string>();
-  const [getVirtualAccounts,setGetVirtualAccounts] = useAtom(virtualAccounts);
- 
+  const [token, setToken] = useState<string>();
+  const [getVirtualAccounts, setGetVirtualAccounts] = useAtom(virtualAccounts);
+  const [getAdminTrans, setGetAdminTrans] = useAtom(adminTrans);
+
   client
     .setEndpoint(`${process.env.NEXT_PUBLIC_APPWRITE_URL}`) // Your API Endpoint
     .setProject(`${process.env.NEXT_PUBLIC_APPWRITE_ID}`); // Your project ID
 
   async function getConfirmation() {
-    await axios
-    .get(
-      `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/api/v1/gettoken`
-    )
-    .then((response) => {
-      localStorage.setItem("token", response.data)
-    });   
-
-  await axios
-  .get(
-    `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/api/v1/virtualaccounts?token=${localStorage.getItem("token")}`
-  )
-  .then((response) => {
-    setGetVirtualAccounts(response.data.data);
-    console.log(response.data);
-  });
-// }
+    let endpoints = [
+      `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/api/v1/gettoken`,
+      `${
+        process.env.NEXT_PUBLIC_APPWRITE_CALLBACK
+      }/api/v1/admin/virtualaccounts?token=${localStorage.getItem("token")}`,
+      `${
+        process.env.NEXT_PUBLIC_APPWRITE_CALLBACK
+      }/api/v1/admin/admintransactions?token=${localStorage.getItem("token")}`,
+    ];
+    const getTokenRequest = () =>
+      axios.get(endpoints[0]).then((res) => {
+        localStorage.setItem("token", res.data);
+        // return res;
+      });
+    const getVirtualAccountsRequest = () => axios.get(endpoints[1]);
+    const getAdminTransRequest = () => axios.get(endpoints[2]);
+    getTokenRequest();
+    const [virtualAccountsResponse, adminTransResponse] = await Promise.all([
+      getVirtualAccountsRequest(),
+      getAdminTransRequest(),
+    ]);
+    console.log({ virtualAccountsResponse, adminTransResponse });
+    setGetVirtualAccounts(virtualAccountsResponse.data.data);
+    setGetAdminTrans(adminTransResponse.data.data);
+  
 
     if (!userId && !secret) {
       const getUserSession = account.getSession("current");
 
       getUserSession.then(
         function (response) {
-          if(response.userId === process.env.NEXT_PUBLIC_ADMIN_ID){
-
+          if (response.userId === process.env.NEXT_PUBLIC_ADMIN_ID) {
             setUserSession(response);
-            console.log("Session: ",response); // Success
-          }else{
+            console.log("Session: ", response); // Success
+          } else {
             // setUserSession(false);
-          router.push("/login");
+            router.push("/login");
           }
         },
         function (error) {
@@ -92,7 +100,7 @@ export default function AdminDashboardLayout({ children }: any) {
     getUserAccount.then(
       function (response) {
         setUserDetails(response);
-        console.log("User: ",response); // Success
+        console.log("User: ", response); // Success
       },
       function (error) {
         console.log(error); // Failure
@@ -108,11 +116,11 @@ export default function AdminDashboardLayout({ children }: any) {
     <>
       {userSession && (
         <div
-        onClick={() => {
-          openMenu && setOpenMenu(false);
-          open && setOpen(false);
-        }}
-        className=" w-full h-screen flex justify-between "
+          onClick={() => {
+            openMenu && setOpenMenu(false);
+            open && setOpen(false);
+          }}
+          className=" w-full h-screen flex justify-between "
         >
           <Header
             setOpenMenu={setOpenMenu}
@@ -179,7 +187,7 @@ export default function AdminDashboardLayout({ children }: any) {
             ))}
           </aside>
 
-          <div className=" flex  items-start  w-full md:w-[95%] group-hover/side:md:w-[85%] px-3 overflow-y-auto pt-20 text-gray-800 bg-white">
+          <div className=" flex mt-16 items-start  w-full md:w-[95%] group-hover/side:md:w-[85%] py-10 px-3 overflow-y-auto  text-gray-800 bg-white">
             {children}
           </div>
           {/* <Footer /> */}

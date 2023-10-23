@@ -42,7 +42,7 @@ export default function AdminTabs() {
   const formattedBalance = new Intl.NumberFormat("en-US", {
     // style: "currency",
     // currency: "NGN",
-  }).format(accBalance && accBalance.withdrawableBalance)
+  }).format(accBalance && accBalance?.withdrawableBalance)
   return (
     <>
       <Tabs defaultValue="overview" className="space-y-4">
@@ -121,7 +121,7 @@ export default function AdminTabs() {
                 </svg>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{getAdminTrans.postingsHistory.length}</div>
+                <div className="text-2xl font-bold">{getAdminTrans?.postingsHistory.length}</div>
                 <p className="text-xs text-muted-foreground">
                   +19% from last month
                 </p>

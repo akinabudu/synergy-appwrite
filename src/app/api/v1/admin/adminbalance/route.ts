@@ -26,7 +26,7 @@ export async function GET(request: Request) {
   };
 
   const { data: info } = await axios.request(reqOptions);
-  // console.log("AdminBalance-Success:", info);
-  //   return info;
+  console.log("AdminBalance-Success:", info);
+    return info;
   return NextResponse.json(info);
 }

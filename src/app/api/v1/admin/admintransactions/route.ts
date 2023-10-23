@@ -13,11 +13,11 @@ export async function GET(request: Request) {
     Authorization: `Bearer ${token}`,
   };
   const bodyContent = JSON.stringify({
-    serviceType: "ADMIN_VIRTUAL_ACCOUNTS",
+    serviceType: "ADMIN_MAIN_ACCOUNT_TRANSACTIONS",
     requestref: uid(),
     data: {
-      "PageSize":"3",
-    "PageNumber":"1"
+        "pageSize": "20",
+        "pageNumber": "3"
     },
   });
 
@@ -30,7 +30,7 @@ export async function GET(request: Request) {
   };
 
   const { data: info } = await axios.request(reqOptions);
-  // console.log("AdminBalance-Success:", info);
+  // console.log("AdminTrnx-Success:", info);
   //   return info;
   return NextResponse.json(info);
 }

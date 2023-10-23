@@ -46,7 +46,7 @@ export default function DashboardLayout({ children }: any) {
         function (error) {
           // setUserSession(false);
           console.log(error); // Failure
-          router.push("/login");
+          // router.push("/login");
         }
       );
     } else if (userId && secret) {

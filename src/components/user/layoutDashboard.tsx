@@ -25,15 +25,15 @@ export default function DashboardLayout({ children }: any) {
   const account = new Account(client);
   let segment = useSelectedLayoutSegment();
   const [userSegment, setUserSegment] = useAtom(layoutSegment);
-  if(userSegment !=="dashboard"){
-segment =userSegment
+  if (userSegment !== "dashboard") {
+    segment = userSegment;
   }
   client
     .setEndpoint(`${process.env.NEXT_PUBLIC_APPWRITE_URL}`) // Your API Endpoint
     .setProject(`${process.env.NEXT_PUBLIC_APPWRITE_ID}`); // Your project ID
 
   async function getConfirmation() {
-    const token=await GetToken()
+    const token = await GetToken();
     localStorage.setItem("token", token);
     if (!userId && !secret) {
       const getUserSession = account.getSession("current");
@@ -84,7 +84,7 @@ segment =userSegment
 
   return (
     <>
-      {userSession && (
+      {/* {userSession && ( */}
         <div
           onClick={() => {
             openMenu && setOpenMenu(false);
@@ -100,7 +100,7 @@ segment =userSegment
             username={userDetails?.name}
             email={userDetails?.email}
             avatar={userDetails?.profileAvatarId}
-            id={userSession.userId}
+            id={userSession?.userId}
           />
 
           <aside
@@ -113,7 +113,9 @@ segment =userSegment
             <Link
               href="/dashboard"
               className="group-hover/side:md:flex md:hidden w-full px-5 md:mr-24 mb-3"
-            > Synergy
+            >
+              {" "}
+              Synergy
               {/* <Image
                 src={"vercel.svg"}
                 width={50}
@@ -126,7 +128,8 @@ segment =userSegment
             <Link
               href="/dashboard"
               className="group-hover/side:md:hidden md:flex w-full px-1  mb-3"
-            >S
+            >
+              S
               {/* <Image
                 src={"next.svg"}
                 className="  mr-3 w-50 h-30"
@@ -142,7 +145,7 @@ segment =userSegment
                 key={index}
                 href={menu.href}
                 className={`flex text-sm justify-start items-center p-2 my-1 rounded-lg dark:text-white  ${
-                 segment === menu.segment &&
+                  segment === menu.segment &&
                   "group bg-[#800080] text-black font-bold"
                 }  "pl-4 group-hover/side:md:pl-8 hover:bg-[#800080]  hover:text-white hover:font-extrabold text-center"
               dark:hover:bg-gray-700 `}
@@ -162,7 +165,7 @@ segment =userSegment
           </div>
           {/* <Footer /> */}
         </div>
-      )}
+      {/* )} */}
     </>
   );
 }

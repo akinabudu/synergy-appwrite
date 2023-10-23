@@ -38,7 +38,7 @@ client
 
   async function providerClick(provider: string) {
     setIsLoading(true);
-    account.createOAuth2Session(provider, `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/dashboard`);
+    account.createOAuth2Session(provider, `/dashboard`);
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
@@ -52,7 +52,7 @@ client
 
     onSubmit: async (values) => {
       setIsLoading(true);
-      const promise = account.createMagicURLSession(userId, values.email, `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/dashboard`);
+      const promise = account.createMagicURLSession(userId, values.email, `/dashboard`);
 
   promise.then(
     function (response) {

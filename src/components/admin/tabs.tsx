@@ -27,7 +27,7 @@ export default function AdminTabs() {
 
     await axios
       .get(
-        `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/api/v1/admin/adminbalance?token=${token}`
+        `/api/v1/admin/adminbalance?token=${token}`
       )
       .then((response) => {
         setAccBalance(response.data.data);

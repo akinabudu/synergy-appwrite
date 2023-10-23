@@ -35,13 +35,9 @@ export default function AdminDashboardLayout({ children }: any) {
 
   async function getConfirmation() {
     let endpoints = [
-      `${process.env.NEXT_PUBLIC_APPWRITE_CALLBACK}/api/v1/gettoken`,
-      `${
-        process.env.NEXT_PUBLIC_APPWRITE_CALLBACK
-      }/api/v1/admin/virtualaccounts?token=${localStorage.getItem("token")}`,
-      `${
-        process.env.NEXT_PUBLIC_APPWRITE_CALLBACK
-      }/api/v1/admin/admintransactions?token=${localStorage.getItem("token")}`,
+      `/api/v1/gettoken`,
+      `/api/v1/admin/virtualaccounts?token=${localStorage.getItem("token")}`,
+      `/api/v1/admin/admintransactions?token=${localStorage.getItem("token")}`,
     ];
     const getTokenRequest = () =>
       axios.get(endpoints[0]).then((res) => {
@@ -114,7 +110,7 @@ export default function AdminDashboardLayout({ children }: any) {
 
   return (
     <>
-      {userSession && (
+      {/* {userSession && ( */}
         <div
           onClick={() => {
             openMenu && setOpenMenu(false);
@@ -130,7 +126,7 @@ export default function AdminDashboardLayout({ children }: any) {
             username={userDetails?.name}
             email={userDetails?.email}
             avatar={userDetails?.profileAvatarId}
-            id={userSession.userId}
+            id={userSession?.userId}
           />
 
           <aside
@@ -192,7 +188,7 @@ export default function AdminDashboardLayout({ children }: any) {
           </div>
           {/* <Footer /> */}
         </div>
-      )}
+      {/* )} */}
     </>
   );
 }
